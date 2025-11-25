@@ -1,0 +1,23 @@
+# Don't publish these to npm
+tests/
+examples/
+docs/
+coverage/
+.github/
+.vscode/
+.idea/
+
+# Config files
+.eslintrc.js
+.prettierrc
+.editorconfig
+tsconfig.json
+
+# Files
+.env
+.env.example
+.gitignore
+*.log
+*.md
+!README.md
+!LICENSE

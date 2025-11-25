@@ -1,13 +1,58 @@
 {
   "name": "pay-by-transfer",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Simple, safe, and affordable bank transfer payments for African businesses. Accept payments with any bank account - 99% cheaper than traditional payment gateways.",
+  "main": "src/index.js",
+  "types": "src/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --coverage",
+    "test:watch": "jest --watch",
+    "test:unit": "jest tests/unit",
+    "test:integration": "jest tests/integration",
+    "lint": "eslint src/**/*.js",
+    "lint:fix": "eslint src/**/*.js --fix",
+    "format": "prettier --write 'src/**/*.js'",
+    "prepublishOnly": "npm test"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs"
+  "keywords": [
+    "payments",
+    "bank-transfer",
+    "nigeria",
+    "africa",
+    "paystack",
+    "flutterwave",
+    "mono",
+    "payment-gateway",
+    "fintech",
+    "virtual-account",
+    "webhook",
+    "saakwa",
+    "e-commerce",
+    "pos",
+    "ussd"
+  ],
+  "author": "Your Name <your.email@example.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/pay-by-transfer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/pay-by-transfer/issues"
+  },
+  "homepage": "https://pay-by-transfer.com",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "dependencies": {
+    "axios": "^1.6.2",
+    "eventemitter3": "^5.0.1",
+    "joi": "^17.11.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.54.0",
+    "jest": "^29.7.0",
+    "prettier": "^3.1.0",
+    "supertest": "^6.3.3"
+  }
 }
