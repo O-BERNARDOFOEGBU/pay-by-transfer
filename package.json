@@ -1,6 +1,6 @@
 {
   "name": "pay-by-transfer",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Simple, safe, and affordable bank transfer payments for African businesses. Accept payments with any bank account - 99% cheaper than traditional payment gateways.",
   "main": "src/index.js",
   "types": "src/index.d.ts",
