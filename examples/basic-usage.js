@@ -3,7 +3,7 @@
  * Start FREE with zero dependencies
  */
 
-const PayByTransfer = require("../src/index");
+const PayByTransfer = require("pay-by-transfer");
 
 // Initialize with manual provider (FREE!)
 const payment = new PayByTransfer({
