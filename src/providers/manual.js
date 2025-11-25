@@ -48,6 +48,26 @@ class ManualProvider extends BaseProvider {
    * Manually confirm a payment
    * Called by business owner after checking bank alert
    */
+  // async confirmPayment(reference, transactionDetails = {}) {
+  //   const payment = this.pendingPayments.get(reference);
+
+  //   if (!payment) {
+  //     throw new Error(`Payment ${reference} not found`);
+  //   }
+
+  //   payment.status = "confirmed";
+  //   payment.confirmedAt = new Date().toISOString();
+  //   payment.transactionId =
+  //     transactionDetails.transactionId || `MAN_${Date.now()}`;
+  //   payment.confirmedBy = transactionDetails.confirmedBy || "manual";
+  //   payment.notes = transactionDetails.notes || "";
+
+  //   this.confirmedPayments.set(reference, payment);
+  //   this.pendingPayments.delete(reference);
+
+  //   return payment;
+  // }
+
   async confirmPayment(reference, transactionDetails = {}) {
     const payment = this.pendingPayments.get(reference);
 
@@ -64,6 +84,11 @@ class ManualProvider extends BaseProvider {
 
     this.confirmedPayments.set(reference, payment);
     this.pendingPayments.delete(reference);
+
+    // 👇 IMPORTANT: Tell PayByTransfer to verify + emit events
+    if (this.main && typeof this.main.verify === "function") {
+      await this.main.verify(reference);
+    }
 
     return payment;
   }

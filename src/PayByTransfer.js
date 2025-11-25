@@ -49,17 +49,40 @@ class PayByTransfer extends EventEmitter {
   _initializeProvider() {
     const { provider: providerType, account, apiKey } = this.config;
 
+    // if (providerType) {
+    //   // Dynamic provider (Paystack, Mono, etc.)
+    //   const Provider = providers[providerType];
+    //   if (!Provider) {
+    //     throw new PayByTransferError(`Unknown provider: ${providerType}`);
+    //   }
+    //   this.provider = new Provider({ apiKey, ...this.config });
+    // } else if (account) {
+    //   // Static account with manual confirmation
+    //   const Provider = providers.manual;
+    //   this.provider = new Provider({ account, ...this.config });
+    // } else {
+    //   throw new PayByTransferError(
+    //     "Either provider or account must be specified"
+    //   );
+    // }
+
     if (providerType) {
-      // Dynamic provider (Paystack, Mono, etc.)
       const Provider = providers[providerType];
       if (!Provider) {
         throw new PayByTransferError(`Unknown provider: ${providerType}`);
       }
-      this.provider = new Provider({ apiKey, ...this.config });
+      this.provider = new Provider({
+        ...this.config,
+        apiKey,
+        main: this,
+      });
     } else if (account) {
-      // Static account with manual confirmation
       const Provider = providers.manual;
-      this.provider = new Provider({ account, ...this.config });
+      this.provider = new Provider({
+        ...this.config,
+        account,
+        main: this,
+      });
     } else {
       throw new PayByTransferError(
         "Either provider or account must be specified"
