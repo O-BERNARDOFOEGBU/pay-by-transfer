@@ -35,10 +35,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/pay-by-transfer.git"
+    "url": "https://github.com/o-bernardofoegbu/pay-by-transfer.git"
   },
   "bugs": {
-    "url": "https://github.com/yourusername/pay-by-transfer/issues"
+    "url": "https://github.com/o-bernardofoegbu/pay-by-transfer/issues"
   },
   "homepage": "https://pay-by-transfer.com",
   "engines": {
