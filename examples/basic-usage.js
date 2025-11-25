@@ -9,8 +9,8 @@ const PayByTransfer = require("../src/index");
 const payment = new PayByTransfer({
   provider: "manual",
   account: {
-    number: "7060859311",
-    name: "OPARANTHO VENTURES",
+    number: "70XXXXX311",
+    name: "Your Business",
     bank: "Moniepoint",
   },
 });
