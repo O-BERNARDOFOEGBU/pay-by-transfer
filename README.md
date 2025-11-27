@@ -1,5 +1,3 @@
-{"id":"72410","variant":"standard","title":"SEO Optimized README for pay-by-transfer"}
-
 # pay-by-transfer 💸  
 **The fastest, cheapest, and most reliable bank transfer payment API for Nigeria and Africa.**  
 Accept instant bank transfers from *any Nigerian bank* with near-zero fees.  
