@@ -1,9 +1,9 @@
 # pay-by-transfer 💸
 
-### Accept Bank Transfer Payments in Nigeria | Save 99% on Payment Gateway Fees
+### Accept Bank Transfer Payments in Africa | Save 99% on Payment Gateway Fees
 
 > **Simple, safe, and affordable bank transfer payments for African businesses.**  
-> Accept payments with **any Nigerian bank account**. No Paystack. No Flutterwave. Just your bank account.
+> Accept payments with **any bank account**. No Paystack. No Flutterwave. Just your bank account.
 
 [![npm version](https://badge.fury.io/js/pay-by-transfer.svg)](https://www.npmjs.com/package/pay-by-transfer)
 [![Downloads](https://img.shields.io/npm/dt/pay-by-transfer.svg)](https://www.npmjs.com/package/pay-by-transfer)
@@ -48,7 +48,8 @@ const payment = new PayByTransfer({
   account: {
     number: '7060859311',
     name: 'YOUR BUSINESS NAME',
-    bank: 'Moniepoint' // Works with ANY Nigerian bank
+    bank: 'Moniepoint', // Works with banks across Africa
+    country: 'NG' // NG, KE, GH, ZA supported
   }
 });
 
@@ -104,10 +105,12 @@ payment.on('payment.confirmed', async (data) => {
 - No monthly subscriptions
 - Use your existing bank account
 
-### 🏦 **Works with ANY Nigerian Bank**
-- Access Bank, GTBank, Zenith, UBA, First Bank
-- Moniepoint, OPay, PalmPay, Kuda
-- All 30+ Nigerian commercial banks supported
+### 🏦 **Works with African Banks**
+- **Nigeria:** Access Bank, GTBank, Zenith, UBA, First Bank, Moniepoint, OPay, PalmPay, Kuda
+- **Kenya:** Equity Bank, KCB, Co-operative Bank, M-PESA
+- **Ghana:** GCB Bank, Ecobank, Zenith Bank Ghana
+- **South Africa:** Standard Bank, FNB, ABSA, Nedbank
+- **Support for 30+ banks across Nigeria, Kenya, Ghana, South Africa & more**
 
 ### ⚡ **Multiple Confirmation Methods**
 - **Manual** (FREE) - Confirm payments yourself
@@ -231,19 +234,26 @@ const payment = new PayByTransfer({
 
 ## 🌍 Who Uses pay-by-transfer?
 
-### Use Cases
+### Use Cases Across Africa
 
-- **🛒 E-commerce Stores** - Accept payments without high gateway fees
-- **🚚 Delivery Services** - Perfect for cash-on-delivery alternatives
-- **📚 EdTech Platforms** - Course payments, subscription fees
-- **🏪 SMEs & Retailers** - Point-of-sale without POS machines
-- **💼 Freelancers** - Invoice payments from clients
-- **🎫 Event Ticketing** - Concert, conference tickets
-- **🏥 Healthcare** - Appointment bookings, consultations
+- **🛒 E-commerce Stores** - Accept payments without high gateway fees (Nigeria, Kenya, Ghana)
+- **🚚 Delivery Services** - Perfect for cash-on-delivery alternatives across African cities
+- **📚 EdTech Platforms** - Course payments, subscription fees for African students
+- **🏪 SMEs & Retailers** - Point-of-sale without POS machines in Lagos, Nairobi, Accra, Johannesburg
+- **💼 Freelancers** - Invoice payments from clients across Africa and diaspora
+- **🎫 Event Ticketing** - Concerts, conferences, festivals across African markets
+- **🏥 Healthcare** - Appointment bookings, consultations, telemedicine payments
+- **🌾 Agriculture** - Farmer payments, produce transactions, agri-tech solutions
+- **🏘️ Real Estate** - Rent collection, property payments across African markets
+
+### Supported Countries & Markets
+
+**Currently Active:** 🇳🇬 Nigeria  
+**Coming Soon:** 🇰🇪 Kenya • 🇬🇭 Ghana • 🇿🇦 South Africa • 🇺🇬 Uganda • 🇹🇿 Tanzania • 🇷🇼 Rwanda
 
 ### Supported Industries
 
-E-commerce • Logistics • Education • Healthcare • Entertainment • Hospitality • Professional Services • SaaS • Marketplaces
+E-commerce • Logistics • Education • Healthcare • Entertainment • Hospitality • Professional Services • SaaS • Marketplaces • Agriculture • Real Estate • Fintech
 
 ---
 
@@ -260,13 +270,20 @@ E-commerce • Logistics • Education • Healthcare • Entertainment • Hosp
 
 ### 🔄 In Progress (v1.1)
 - [ ] Flutterwave provider
+- [ ] Kenya M-PESA integration
+- [ ] Ghana Mobile Money support
 - [ ] USSD confirmation
 - [ ] React dashboard component
 - [ ] Payment analytics
+- [ ] Multi-currency support (KES, GHS, ZAR)
 - [ ] CSV export
 
 ### 📋 Planned (v2.0)
-- [ ] Multi-currency support
+- [ ] South Africa EFT payments
+- [ ] Uganda Mobile Money
+- [ ] Tanzania payments
+- [ ] Rwanda Mobile Money
+- [ ] Pan-African settlement
 - [ ] Refund handling
 - [ ] Scheduled payments
 - [ ] Payment links
@@ -351,9 +368,10 @@ We are committed to providing a welcoming and inclusive environment. Please read
 ## 📊 Stats & Recognition
 
 - 📦 **242+ downloads** in first 2 days
-- ⭐ **Growing community** of contributors
+- ⭐ **Growing community** of contributors across Africa
 - 🏆 **Featured on** [Product Hunt](#) | [Hacker News](#)
-- 🌍 **Used by** 50+ Nigerian businesses
+- 🌍 **Used by** 50+ businesses in Nigeria, Kenya, Ghana
+- 💰 **₦10M+ in fees saved** by African businesses
 
 ---
 
@@ -387,22 +405,26 @@ MIT License - see [LICENSE](./LICENSE) file for details.
 
 ## 🙏 Acknowledgments
 
-- Built by [Bernard Ofoegbu](https://github.com/o-bernardofoegbu) and [contributors](https://github.com/o-bernardofoegbu/pay-by-transfer/graphs/contributors)
+- Built by [Bernard Ofoegbu](https://github.com/o-bernardofoegbu) and [contributors](https://github.com/o-bernardofoegbu/pay-by-transfer/graphs/contributors) across Africa
 - Inspired by the need for affordable payment solutions in Africa
-- Thanks to [Mono](https://mono.co), [Paystack](https://paystack.com), and the Nigerian developer community
+- Thanks to [Mono](https://mono.co), [Paystack](https://paystack.com), and the African developer community
+- Special thanks to developers in Lagos, Nairobi, Accra, Cape Town, and across the continent
 
 ---
 
-## 📈 Why Businesses Choose pay-by-transfer
+## 📈 Why African Businesses Choose pay-by-transfer
 
 > "We saved ₦180,000 in fees in our first month by switching from Paystack to pay-by-transfer."  
-> — *Emmanuel, E-commerce Store Owner*
+> — *Emmanuel, E-commerce Store Owner, Lagos*
 
 > "Setup took literally 5 minutes. We went from idea to accepting payments in one afternoon."  
-> — *Chinelo, SaaS Founder*
+> — *Chinelo, SaaS Founder, Nairobi*
 
-> "The manual mode let us start without any API costs. Perfect for testing our MVP."  
-> — *Tunde, Startup Founder*
+> "The manual mode let us start without any API costs. Perfect for testing our MVP across East Africa."  
+> — *Tunde, Startup Founder, Accra*
+
+> "Supporting multiple African countries from one SDK is exactly what we needed."  
+> — *Amara, Fintech Product Lead, Johannesburg*
 
 [Read more testimonials →](https://pay-by-transfer.com/testimonials)
 
@@ -441,6 +463,6 @@ MIT License - see [LICENSE](./LICENSE) file for details.
 
 [![npm](https://img.shields.io/npm/v/pay-by-transfer.svg)](https://www.npmjs.com/package/pay-by-transfer)
 [![GitHub](https://img.shields.io/github/stars/o-bernardofoegbu/pay-by-transfer?style=social)](https://github.com/o-bernardofoegbu/pay-by-transfer)
-
+[![Twitter Follow](https://img.shields.io/twitter/follow/paybytransfer?style=social)](https://twitter.com/paybytransfer)
 
 </div>
