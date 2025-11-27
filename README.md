@@ -21,11 +21,11 @@ Traditional payment gateways like **Paystack** and **Flutterwave** charge **₦2
 
 ### 💰 Real Cost Comparison
 
-| Transaction Volume | Paystack Cost | pay-by-transfer Cost | **You Save** |
-|-------------------|---------------|---------------------|--------------|
-| 100 transactions  | ₦21,500       | ₦0 - ₦700          | **₦20,800 (97%)** |
-| 1,000 transactions| ₦215,000      | ₦0 - ₦7,000        | **₦208,000 (97%)** |
-| 10,000 transactions| ₦2,150,000   | ₦0 - ₦70,000       | **₦2,080,000 (97%)** |
+| Transaction Volume  | Paystack Cost | pay-by-transfer Cost | **You Save**         |
+| ------------------- | ------------- | -------------------- | -------------------- |
+| 100 transactions    | ₦21,500       | ₦0 - ₦700            | **₦20,800 (97%)**    |
+| 1,000 transactions  | ₦215,000      | ₦0 - ₦7,000          | **₦208,000 (97%)**   |
+| 10,000 transactions | ₦2,150,000    | ₦0 - ₦70,000         | **₦2,080,000 (97%)** |
 
 ---
 
@@ -40,24 +40,24 @@ npm install pay-by-transfer
 ### Basic Usage (FREE - Manual Confirmation)
 
 ```javascript
-const PayByTransfer = require('pay-by-transfer');
+const PayByTransfer = require("pay-by-transfer");
 
 // Initialize with your bank account
 const payment = new PayByTransfer({
-  provider: 'manual', // Start FREE - no API keys needed!
+  provider: "manual", // Start FREE - no API keys needed!
   account: {
-    number: '7060859311',
-    name: 'YOUR BUSINESS NAME',
-    bank: 'Moniepoint', // Works with banks across Africa
-    country: 'NG' // NG, KE, GH, ZA supported
-  }
+    number: "7060XXXXXX",
+    name: "YOUR BUSINESS NAME",
+    bank: "Moniepoint", // Works with banks across Africa
+    country: "NG", // NG, KE, GH, ZA supported
+  },
 });
 
 // Create a payment session
 const session = await payment.create({
   amount: 7700, // Amount in kobo (₦77)
-  reference: 'ORDER_123',
-  customerEmail: 'customer@example.com'
+  reference: "ORDER_123",
+  customerEmail: "customer@example.com",
 });
 
 console.log(`Customer should transfer ₦${session.amount / 100} to:`);
@@ -65,31 +65,31 @@ console.log(`Account: ${session.accountNumber}`);
 console.log(`Bank: ${session.bankName}`);
 
 // Listen for payment confirmation
-payment.on('payment.confirmed', (data) => {
-  console.log('✅ Payment received!', data.reference);
+payment.on("payment.confirmed", (data) => {
+  console.log("✅ Payment received!", data.reference);
   // Update your database, dispatch order, send confirmation email, etc.
 });
 
 // Manually confirm payment after checking bank alert
-await payment.provider.confirmPayment('ORDER_123');
+await payment.provider.confirmPayment("ORDER_123");
 ```
 
 ### Advanced Usage (Automatic with Mono)
 
 ```javascript
 const payment = new PayByTransfer({
-  provider: 'mono', // Automatic confirmation
+  provider: "mono", // Automatic confirmation
   apiKey: process.env.MONO_API_KEY,
   account: {
-    number: '7060859311',
-    name: 'YOUR BUSINESS NAME',
-    bank: 'Moniepoint'
-  }
+    number: "7060XXXXXX",
+    name: "YOUR BUSINESS NAME",
+    bank: "Moniepoint",
+  },
 });
 
 // Payments auto-confirm via webhook - no manual work needed!
-payment.on('payment.confirmed', async (data) => {
-  await db.orders.update(data.reference, { status: 'paid' });
+payment.on("payment.confirmed", async (data) => {
+  await db.orders.update(data.reference, { status: "paid" });
   await sendConfirmationEmail(data.customerEmail);
   console.log(`✅ Order ${data.reference} automatically confirmed!`);
 });
@@ -100,12 +100,14 @@ payment.on('payment.confirmed', async (data) => {
 ## ✨ Features
 
 ### 🆓 **Start Completely FREE**
+
 - No API keys required for manual mode
 - Zero setup fees
 - No monthly subscriptions
 - Use your existing bank account
 
 ### 🏦 **Works with African Banks**
+
 - **Nigeria:** Access Bank, GTBank, Zenith, UBA, First Bank, Moniepoint, OPay, PalmPay, Kuda
 - **Kenya:** Equity Bank, KCB, Co-operative Bank, M-PESA
 - **Ghana:** GCB Bank, Ecobank, Zenith Bank Ghana
@@ -113,18 +115,21 @@ payment.on('payment.confirmed', async (data) => {
 - **Support for 30+ banks across Nigeria, Kenya, Ghana, South Africa & more**
 
 ### ⚡ **Multiple Confirmation Methods**
+
 - **Manual** (FREE) - Confirm payments yourself
 - **Mono** (₦7/txn) - Automatic via API
 - **Paystack** (Provider fees) - Virtual accounts
 - Mix and match based on your needs
 
 ### 🎯 **Smart Payment Matching**
+
 - Handles duplicate amounts intelligently
 - Time-window based matching
 - Reference extraction from narration
 - Confidence scoring for ambiguous matches
 
 ### 🔒 **Production-Ready Security**
+
 - Webhook signature verification
 - HMAC-based authentication
 - Input validation with Joi
@@ -132,27 +137,39 @@ payment.on('payment.confirmed', async (data) => {
 - XSS/CSRF protection
 
 ### 📊 **Real-Time Events**
+
 ```javascript
-payment.on('session.created', (data) => { /* ... */ });
-payment.on('payment.confirmed', (data) => { /* ... */ });
-payment.on('payment.expired', (data) => { /* ... */ });
-payment.on('payment.unmatched', (data) => { /* ... */ });
-payment.on('error', (error) => { /* ... */ });
+payment.on("session.created", (data) => {
+  /* ... */
+});
+payment.on("payment.confirmed", (data) => {
+  /* ... */
+});
+payment.on("payment.expired", (data) => {
+  /* ... */
+});
+payment.on("payment.unmatched", (data) => {
+  /* ... */
+});
+payment.on("error", (error) => {
+  /* ... */
+});
 ```
 
 ### 🛠️ **TypeScript Support**
+
 Full TypeScript definitions included. IntelliSense works out of the box.
 
 ```typescript
-import PayByTransfer from 'pay-by-transfer';
+import PayByTransfer from "pay-by-transfer";
 
 const payment: PayByTransfer = new PayByTransfer({
-  provider: 'manual',
+  provider: "manual",
   account: {
-    number: '7060859311',
-    name: 'BUSINESS NAME',
-    bank: 'Moniepoint'
-  }
+    number: "7060XXXXXX",
+    name: "BUSINESS NAME",
+    bank: "Moniepoint",
+  },
 });
 ```
 
@@ -189,12 +206,12 @@ const payment: PayByTransfer = new PayByTransfer({
 
 ```javascript
 const payment = new PayByTransfer({
-  provider: 'manual',
+  provider: "manual",
   account: {
-    number: '1234567890',
-    name: 'BUSINESS NAME',
-    bank: 'GTBank'
-  }
+    number: "1234567890",
+    name: "BUSINESS NAME",
+    bank: "GTBank",
+  },
 });
 ```
 
@@ -204,15 +221,15 @@ const payment = new PayByTransfer({
 
 ```javascript
 const payment = new PayByTransfer({
-  provider: 'mono',
+  provider: "mono",
   apiKey: process.env.MONO_API_KEY,
   account: {
-    number: '1234567890',
-    name: 'BUSINESS NAME',
-    bank: 'GTBank'
+    number: "1234567890",
+    name: "BUSINESS NAME",
+    bank: "GTBank",
   },
-  webhookUrl: 'https://yourdomain.com/webhook',
-  webhookSecret: process.env.WEBHOOK_SECRET
+  webhookUrl: "https://yourdomain.com/webhook",
+  webhookSecret: process.env.WEBHOOK_SECRET,
 });
 ```
 
@@ -222,9 +239,9 @@ const payment = new PayByTransfer({
 
 ```javascript
 const payment = new PayByTransfer({
-  provider: 'paystack',
+  provider: "paystack",
   apiKey: process.env.PAYSTACK_SECRET_KEY,
-  preferredBank: 'wema-bank'
+  preferredBank: "wema-bank",
 });
 ```
 
@@ -260,6 +277,7 @@ E-commerce • Logistics • Education • Healthcare • Entertainment • Hosp
 ## 🚀 Roadmap
 
 ### ✅ Released (v1.0)
+
 - [x] Manual confirmation provider
 - [x] Paystack provider
 - [x] Mono provider
@@ -269,6 +287,7 @@ E-commerce • Logistics • Education • Healthcare • Entertainment • Hosp
 - [x] Event system
 
 ### 🔄 In Progress (v1.1)
+
 - [ ] Flutterwave provider
 - [ ] Kenya M-PESA integration
 - [ ] Ghana Mobile Money support
@@ -279,6 +298,7 @@ E-commerce • Logistics • Education • Healthcare • Entertainment • Hosp
 - [ ] CSV export
 
 ### 📋 Planned (v2.0)
+
 - [ ] South Africa EFT payments
 - [ ] Uganda Mobile Money
 - [ ] Tanzania payments
@@ -395,6 +415,7 @@ Security is our top priority. If you discover a security vulnerability, please e
 MIT License - see [LICENSE](./LICENSE) file for details.
 
 **What this means:**
+
 - ✅ Commercial use allowed
 - ✅ Modification allowed
 - ✅ Distribution allowed
@@ -415,16 +436,16 @@ MIT License - see [LICENSE](./LICENSE) file for details.
 ## 📈 Why African Businesses Choose pay-by-transfer
 
 > "We saved ₦180,000 in fees in our first month by switching from Paystack to pay-by-transfer."  
-> — *Emmanuel, E-commerce Store Owner, Lagos*
+> — _Emmanuel, E-commerce Store Owner, Lagos_
 
 > "Setup took literally 5 minutes. We went from idea to accepting payments in one afternoon."  
-> — *Chinelo, SaaS Founder, Nairobi*
+> — _Chinelo, SaaS Founder, Nairobi_
 
 > "The manual mode let us start without any API costs. Perfect for testing our MVP across East Africa."  
-> — *Tunde, Startup Founder, Accra*
+> — _Tunde, Startup Founder, Accra_
 
 > "Supporting multiple African countries from one SDK is exactly what we needed."  
-> — *Amara, Fintech Product Lead, Johannesburg*
+> — _Amara, Fintech Product Lead, Johannesburg_
 
 [Read more testimonials →](https://pay-by-transfer.com/testimonials)
 
