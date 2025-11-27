@@ -17,7 +17,7 @@
 
 Traditional payment gateways like **Paystack** and **Flutterwave** charge **₦215+ per ₦7,700 transaction**. That's **nearly 3%** in fees!
 
-**pay-by-transfer** lets you accept bank transfer payments using your **own bank account** for **FREE** (manual mode) or **₦7** per ₦7,700 transaction (automatic mode).
+**pay-by-transfer** lets you accept bank transfer payments using your **own bank account** for **FREE** (manual mode) or **₦7** per **₦7,700** transaction (automatic mode).
 
 ### 💰 Real Cost Comparison
 
