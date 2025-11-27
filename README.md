@@ -5,7 +5,7 @@
 [![npm version](https://badge.fury.io/js/pay-by-transfer.svg)](https://www.npmjs.com/package/pay-by-transfer)
 ![npm downloads](https://img.shields.io/npm/dw/pay-by-transfer)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![GitHub Stars](https://img.shields.io/github/stars/yourusername/pay-by-transfer.svg)](https://github.com/yourusername/pay-by-transfer/stargazers)
+[![GitHub Stars](https://img.shields.io/github/stars/yourusername/pay-by-transfer.svg)](https://github.com/o-bernardofoegbu/pay-by-transfer/stargazers)
 
 ---
 
@@ -94,8 +94,6 @@ We ❤️ contributions! Here’s how you can help:
 3. Commit your changes (`git commit -m 'Add new feature'`)
 4. Push to the branch (`git push origin feature/my-feature`)
 5. Open a pull request
-
-Please also check our **[Code of Conduct](./CODE_OF_CONDUCT.md)** and **[Contributing Guide](./CONTRIBUTING.md)**.
 
 ---
 
