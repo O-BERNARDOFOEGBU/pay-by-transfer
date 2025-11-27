@@ -1,141 +1,118 @@
-# pay-by-transfer 💸  
-**The fastest, cheapest, and most reliable bank transfer payment API for Nigeria and Africa.**  
-Accept instant bank transfers from *any Nigerian bank* with near-zero fees.  
-Perfect for **fintechs, ecommerce platforms, mobile apps, agencies, and developers** who need a simple bank transfer payment solution.
+# 💸 pay-by-transfer
+
+> **Accept bank transfers in Africa with any business account. Simple, safe, and 99% cheaper than Paystack.**
 
 [![npm version](https://badge.fury.io/js/pay-by-transfer.svg)](https://www.npmjs.com/package/pay-by-transfer)
-![npm downloads](https://img.shields.io/npm/dw/pay-by-transfer.svg)
-![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![GitHub Stars](https://img.shields.io/github/stars/yourusername/pay-by-transfer.svg)](https://github.com/yourusername/pay-by-transfer/stargazers)
 
 ---
 
-## 🔍 What is pay-by-transfer?
-`pay-by-transfer` is a lightweight Node.js library for accepting **bank transfer payments** in Nigeria using:
-- Virtual account numbers  
-- Direct bank transfers  
-- Manual confirmation  
-- Provider integrations (Moniepoint, Paystack, Opay, Flutterwave — coming)
+## 🚀 Why pay-by-transfer?
 
-It is built for **high accuracy, reliability, and virtually zero transaction fees**, making it a powerful alternative to traditional payment gateways in Africa.
+Bank transfers are **fast, reliable, and low-cost**, yet businesses face **high fees and manual confirmation**. `pay-by-transfer` solves this by:
 
----
-
-## ✨ Key Features (SEO-Rich)
-- ⚡ **Instant bank transfer confirmation API**
-- 💳 **Virtual account generation for payments (Nigeria)**
-- 🔒 **Secure payment verification**
-- 💸 **Save 99% on payment fees vs Paystack or Flutterwave**
-- 🌍 **Works with all Nigerian banks (GTBank, Access, Zenith, Opay, Kuda, etc.)**
-- 🧩 **Supports Moniepoint, Paystack, and more (coming)**
-- 🛠 **Easy integration with Node.js, Express.js, NestJS, Next.js**
-- 🔗 **Webhook support for production apps**
-- 📦 **Zero dependencies — tiny bundle size**
-- 🆓 **Completely free manual provider**
-
-The entire library is built for **fintech-grade performance**.
+* **Working with any bank account** — no need for virtual accounts.
+* **Automating confirmations** via [Mono](https://mono.co/) or manual mode.
+* **Saving up to 99% on transaction fees** compared to traditional gateways.
+* **Being developer-friendly** — simple API, secure, and extensible.
 
 ---
 
-## 🚀 Install
+## ✨ Features
+
+* ✅ Accept payments with **any bank account**.
+* ✅ Automatic confirmation with Mono webhooks.
+* ✅ Manual mode for FREE testing.
+* ✅ Supports multiple providers (Paystack, Flutterwave, Moniepoint, Mono).
+* ✅ Secure — encrypted API keys, verified webhooks.
+* ✅ Open-source and contribution-ready.
+
+---
+
+## 🏁 Quick Start
+
 ```bash
 npm install pay-by-transfer
 ```
 
----
-
-## 💻 Quick Example: Accept Bank Transfer Payment
 ```javascript
 const PayByTransfer = require("pay-by-transfer");
 
+// Initialize with Mono for automatic confirmation
 const payment = new PayByTransfer({
-  provider: "manual", // FREE starter
+  provider: "mono",
   account: {
     number: "7060XXXXXX",
-    name: "MY BUSINESS",
-    bank: "Moniepoint",
+    name: "YOUR BUSINESS",
+    bank: "GTBank",
+    monitor: "mono",
+    monoToken: process.env.MONO_TOKEN,
   },
 });
 
-// Create a payment session (virtual account optional)
+// Create a payment session
 const session = await payment.create({
-  amount: 7700, // ₦77 in kobo
+  amount: 7700,
   reference: "ORDER_123",
 });
 
-// Receive confirmation in real-time
+// Listen for confirmation
 payment.on("payment.confirmed", (data) => {
-  console.log("✅ Payment received:", data.reference);
+  console.log("✅ Payment confirmed!", data.reference);
 });
 ```
 
 ---
 
-## 🧩 Supported Payment Providers
-| Provider | Type | Fees | Status |
-|---------|------|------|--------|
-| Manual (built-in) | Direct transfers | **₦0** | ✓ Available |
-| Moniepoint | Virtual Accounts | ₦7 | ✓ Available |
-| Paystack Bank Transfer | Virtual Accounts | ₦10–₦25 | Coming Soon |
-| Flutterwave VA | Virtual Accounts | ₦15–₦30 | Coming Soon |
-| Opay / PalmPay | Wallet Transfers | ₦0–₦10 | Coming Soon |
+## 💰 Pricing
 
-This makes `pay-by-transfer` perfect for:
-- Marketplace apps  
-- Lending apps  
-- Utility billing apps  
-- Agency banking  
-- Ecommerce checkout flows  
-- Subscription billing  
-- POS backend systems  
+| Plan / Method | Fee per Transaction | Savings vs Paystack (₦215) |
+| ------------- | ------------------- | -------------------------- |
+| **Manual**    | ₦0                  | 100% (₦215 saved per txn)  |
+| **Mono**      | ₦7                  | 97% (₦208 saved per txn)   |
+
+> Small businesses can start free and scale as they grow.
 
 ---
 
-## 💰 Pricing & Cost Comparison
-| Provider | Cost/Txn | Savings vs Paystack (₦215) |
-|----------|----------|-----------------------------|
-| **Manual** | **₦0** | Save ₦215,000 per 1,000 txns |
-| **Moniepoint VA** | ₦7 | Save ₦208,000 per 1,000 txns |
+## 📚 Documentation
 
-This is the **cheapest payment processing method in Nigeria**.
-
----
-
-## 📘 Full Documentation
-- Website → https://pay-by-transfer.com  
-- Docs → https://pay-by-transfer.com/docs  
-- API Reference → https://pay-by-transfer.com/api  
-- Examples → [`/examples`](./examples)
-
----
-
-## 🛠 Roadmap (SEO Included)
-- [ ] Virtual account API for more Nigerian banks  
-- [ ] Flutterwave / Paystack / Opay integrations  
-- [ ] Full KudiTrace-powered monitoring  
-- [ ] Retry logic + automated reconciliation  
-- [ ] Web dashboard for transactions  
-- [ ] Inline widget for checkout  
-- [ ] Python & Go SDK versions  
-- [ ] SMS/Email alerts for incoming transfers  
+* [Full Docs](https://pay-by-transfer.com/docs)
+* [API Reference](https://pay-by-transfer.com/api)
+* [Examples](./examples)
 
 ---
 
 ## 🤝 Contributing
-Contributions are welcome!  
-If you want to improve African payment infrastructure, join us:
 
-- Open an issue  
-- Submit a PR  
-- Suggest providers  
-- Add integrations  
+We ❤️ contributions! Here’s how you can help:
 
----
+1. Fork the repo
+2. Create a feature branch (`git checkout -b feature/my-feature`)
+3. Commit your changes (`git commit -m 'Add new feature'`)
+4. Push to the branch (`git push origin feature/my-feature`)
+5. Open a pull request
 
-## ⭐ Support the Project
-If `pay-by-transfer` saved you money, time, or stress, please give the repository a **⭐ star**.  
-It helps developers discover the project and supports the mission of affordable African payments.
+Please also check our **[Code of Conduct](./CODE_OF_CONDUCT.md)** and **[Contributing Guide](./CONTRIBUTING.md)**.
 
 ---
 
 ## 📝 License
-MIT © 2025 O. Bernard Ofoegbu — pay-by-transfer
+
+MIT © 2025 [pay-by-transfer](https://github.com/yourusername/pay-by-transfer)
+
+---
+
+## 🌟 Star this project if it helped you!
+
+> `pay-by-transfer` is open-source and free to use. Every star helps us grow and reach more developers and businesses across Africa.
+
+---
+
+## 🤝 Support
+
+- Email: support@pay-by-transfer.com
+- Issues: [GitHub Issues](https://github.com/yourusername/pay-by-transfer/issues)
+
+
