@@ -3,6 +3,7 @@
 > **Accept bank transfers in Africa with any business account. Simple, safe, and 99% cheaper than Paystack.**
 
 [![npm version](https://badge.fury.io/js/pay-by-transfer.svg)](https://www.npmjs.com/package/pay-by-transfer)
+![npm downloads](https://img.shields.io/npm/dw/pay-by-transfer)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![GitHub Stars](https://img.shields.io/github/stars/yourusername/pay-by-transfer.svg)](https://github.com/yourusername/pay-by-transfer/stargazers)
 
@@ -67,10 +68,10 @@ payment.on("payment.confirmed", (data) => {
 
 ## 💰 Pricing
 
-| Plan / Method | Fee per Transaction | Savings vs Paystack (₦215) |
-| ------------- | ------------------- | -------------------------- |
-| **Manual**    | ₦0                  | 100% (₦215 saved per txn)  |
-| **Mono**      | ₦7                  | 97% (₦208 saved per txn)   |
+| You Pay         | vs Paystack (₦215) | Savings               |
+| --------------- | ------------------ | --------------------- |
+| **₦0** (Manual) | 100%               | ₦215,000 on 1000 txns |
+| **₦7** (Mono)   | 97%                | ₦208,000 on 1000 txns |
 
 > Small businesses can start free and scale as they grow.
 
